@@ -1,5 +1,7 @@
 package com.jonas.solution.trie;
 
+import lombok.Data;
+
 /**
  * NameCount
  *
@@ -7,6 +9,7 @@ package com.jonas.solution.trie;
  * @version 1.0
  * @date 2024-08-25
  */
+@Data
 public class NameCount implements Comparable<NameCount> {
 
     private String name;

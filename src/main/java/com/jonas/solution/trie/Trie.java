@@ -31,7 +31,7 @@ public class Trie {
         if (node.count > 0) {
             if (minHeap.size() < k) {
                 minHeap.offer(new NameCount(prefix.toString(), node.count));
-            } else if (node.count > minHeap.size()) {
+            } else if (node.count > minHeap.peek().getCount()) {
                 minHeap.poll();
                 minHeap.offer(new NameCount(prefix.toString(), node.count));
             }
@@ -44,6 +44,7 @@ public class Trie {
     }
 
     public PriorityQueue<NameCount> getTopNames(int k) {
+        // 最小堆
         PriorityQueue<NameCount> minHeap = new PriorityQueue<>(k);
         getAllNames(root, new StringBuilder(), minHeap, k);
         return minHeap;
